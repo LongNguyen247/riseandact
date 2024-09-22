@@ -1,0 +1,53 @@
+create database db_socialawareness; 
+
+use db_socialawareness;
+
+create table tbuser(
+    emailid varchar(200) primary key, 
+    password varchar(100),
+    name varchar(200),
+    mobile varchar(50),
+    country varchar(50)
+);
+
+-- Changes to tbuser for including securityquestion and security answer 
+create table tbuser(
+    emailid varchar(200) primary key, 
+    password varchar(100),
+    name varchar(200),
+    mobile varchar(50),
+    country varchar(50),
+    securityquestion varchar(100),
+    securityanswer varchar(100)
+);
+
+
+
+-- Administrator Table 
+create table tbadmin(
+    adminid varchar(200) primary key, 
+    admpassword varchar(100),
+    name varchar(200),
+    mobile varchar(50),
+    country varchar(50),
+    securityquestion varchar(100),
+    securityanswer varchar(100)
+);
+
+
+-- Created a single administrator
+insert into tbadmin values('admin@gmail.com', 'admin', 'Administrator', '22323222', 'Australia', 
+   'What is your pass code?', 'admin' );
+   
+   
+--Campaign Table 
+   
+create table tbcampaign(campaignid int, campaignName varchar(50),
+   campaignDesc varchar(500), targetAmount int, duration varchar(50),
+   category varchar(50), userid varchar(50) ) ;
+   
+   
+-- Campaign Joining Table    
+   
+create table tbjoincampaign(id int primary key, 
+    campaignid int, amount int, userid varchar(50)) 
